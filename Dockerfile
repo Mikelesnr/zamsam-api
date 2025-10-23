@@ -39,8 +39,8 @@ WORKDIR /var/www/html
 # Copy Laravel app
 COPY . .
 
-# Copy built frontend assets
-COPY --from=frontend /app/public ./public
+# ✅ Copy only the built frontend assets (public/build)
+COPY --from=frontend /app/public/build ./public/build
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
